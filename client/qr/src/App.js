@@ -1,21 +1,18 @@
 import {useState} from 'react';
 import './App.css';
-import qr from 'qr-image';
-import fs from 'fs';
-var url="";
 
-var qr_svg = qr.image(url);
-qr_svg.pipe(fs.createWriteStream('qr.png'));
 function App() {
   const[URLin,setURLin]=useState("");
-  
- url=URLin;
+
+ console.log(URLin);
   const handleSubmit=(e)=>{
     e.preventDefault();
 
   }
   const handleChange=(e)=>{
+    setURLin(e.target.value);
     console.log(e.target.value);
+    
   }
   return (
     <div className="App">
